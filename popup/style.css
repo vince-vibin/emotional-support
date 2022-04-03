@@ -1,0 +1,11 @@
+#footer {
+    width: 100%;
+    background-color: aqua;
+    margin-left: 0px;
+    margin-right: 0px;
+    text-align: right;
+}
+
+#settingsSIM {
+    align-self: right;
+}
