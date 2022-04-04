@@ -1,9 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("buttonMain").addEventListener("click", getCat)
-    getCat()
-    
 })
 
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if (request.msg === "backround_api_call") {
+            let responseURL = request.data.url
+            document.getElementById("catIMG").src = responseURL
+        }
+    }
+);
+getCat()
 
 function getCat() {
     let httpReq = new XMLHttpRequest()
