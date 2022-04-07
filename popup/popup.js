@@ -29,15 +29,19 @@ function getCat() {
     document.getElementById("supportIMG").src = responseURL
 }
 
-// TODO get url write
 function getDoggo() {
     let httpReq = new XMLHttpRequest()
     httpReq.open("GET", "https://random.dog/woof.json", false)
     httpReq.send()
     
-    let response = JSON.parse(httpReq.responseText)[0]
-    let responseURL = response["url"]
+    let response = JSON.parse(httpReq.responseText)
+    let responseURL = response.url
+    
 
-    document.getElementById("supportIMG").src = responseURL
+    if (responseURL.endsWith("jpg") || responseURL.endsWith(".png") || responseURL.endsWith(".jpeg")) {
+        document.getElementById("supportIMG").src = responseURL
+    } else {
+        getDoggo()
+    }
 }
 
