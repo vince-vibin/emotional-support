@@ -7,16 +7,15 @@ function hanlder() {
     //const menu = document.getElementById("animalsDrop")
     let val = document.getElementById("animalsDrop").value
     if (val == "cat") {
-        console.log(val)
         getCat()
     } else if (val == "doggo") {
-        console.log(val)
         getDoggo()
+    } else if (val == "fox") {
+        getFox()
     } else {
-        console.log(val)
+        console.log("value unknown: " + val)
     }
 }
-
 
 function getCat() {
     let httpReq = new XMLHttpRequest()
@@ -37,7 +36,7 @@ function getDoggo() {
     let response = JSON.parse(httpReq.responseText)
     let responseURL = response.url
     
-
+    // if the API doesnt return a picture call it again
     if (responseURL.endsWith("jpg") || responseURL.endsWith(".png") || responseURL.endsWith(".jpeg")) {
         document.getElementById("supportIMG").src = responseURL
     } else {
@@ -45,3 +44,13 @@ function getDoggo() {
     }
 }
 
+function getFox() {
+    let httpReq = new XMLHttpRequest()
+    httpReq.open("GET", "https://randomfox.ca/floof/", false)
+    httpReq.send()
+    
+    let response = JSON.parse(httpReq.responseText)
+    let responseURL = response["image"]
+    
+    document.getElementById("supportIMG").src = responseURL
+}
