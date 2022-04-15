@@ -15,7 +15,7 @@
     padding: 0px;
 
     font-family: 'Nunito', sans-serif;
-    background-color: #151515;
+    background-color: #5f6366;
 }
 
 /* HEADER */
@@ -23,7 +23,7 @@
     width: 100%;
     height: 70px;
     margin-bottom: 50px;
-    background-image: radial-gradient(closest-side,#C5CDD3, #5CDB95);
+    background-image: linear-gradient(to right,#9aa5c3, #4d6e9b);
 
     display: flex;
 }
@@ -36,7 +36,7 @@
     border-width: 10px;
     border-radius: 20px;
     border-style: solid;
-    border-color: #5CDB95;
+    border-color: #9aa5c3;
 }
 #name {
     font-size: 35px;
@@ -49,7 +49,7 @@
 
 /* CONTENT */
 .content {
-    color: #C7493A;
+    color: #99CED2;
 }
 
 #contentParent {
@@ -64,18 +64,25 @@
 
     margin-bottom: 10px;
     border-radius: 5px;
+    border: solid 2px #EDB5C0;
 }
 
 #buttonMain {
     width: 110px;
     height: 30px;
-    border: 2px solid #4CAF50;
+    background-color: #EDB5C0;
+
+    border: none;
+    border-radius: 5px;
+
     font-size: 15px;
     font-family: inherit;
+    font-weight: bold;
 }
 
 #buttonMain:hover {
-    background-color: aquamarine;
+    filter: brightness(120%);
+    border: solid  2px #99CED2;
 }
 /* FOOTER */
 #footer {
