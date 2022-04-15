@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap');
+
+/* COLOR PALLETE:
+    #8EE4AF
+    #EDF5E1
+    #5CDB95
+    #907163
+    #379683
+    #151515
+*/
 #body {
     min-width: 450px;
     min-height: 500px;
     margin: 0px;
     padding: 0px;
+
+    font-family: 'Nunito', sans-serif;
+    background-color: #151515;
 }
 
 /* HEADER */
@@ -10,7 +23,7 @@
     width: 100%;
     height: 70px;
     margin-bottom: 50px;
-    background-color: lightgray;
+    background-image: radial-gradient(closest-side,#C5CDD3, #5CDB95);
 
     display: flex;
 }
@@ -23,24 +36,47 @@
     border-width: 10px;
     border-radius: 20px;
     border-style: solid;
-    border-color: lightgray;
+    border-color: #5CDB95;
 }
 #name {
     font-size: 35px;
+    color: #151515;
+    font-weight: 700;
+    text-shadow: 2px 2px grey;
+
     align-self: center;
 }
 
 /* CONTENT */
+.content {
+    color: #C7493A;
+}
+
 #contentParent {
-    background-color: beige;
+    background-color: inherit;
+    text-align: center;
 }
 #supportIMG {
     min-width: 200px;
     min-height: 200px; 
-    max-height: 200px;
-    max-width: 100%;
+    max-height: 350px;
+    max-width: 90%;
+
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
+#buttonMain {
+    width: 110px;
+    height: 30px;
+    border: 2px solid #4CAF50;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+#buttonMain:hover {
+    background-color: aquamarine;
+}
 /* FOOTER */
 #footer {
     width: 100%;
