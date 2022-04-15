@@ -1,7 +1,7 @@
 {
     "name": "emotional support",
     "description": "dont work alone",
-    "version": "0.3",
+    "version": "0.4",
     "manifest_version": 3,
     
     "action": {
