@@ -1,54 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap');
+
+/* COLOR PALLETE:
+    #8EE4AF
+    #EDF5E1
+    #5CDB95
+    #907163
+    #379683
+    #151515
+*/
 #body {
-    min-width: 450px;
+    min-width: 400px;
     min-height: 500px;
     margin: 0px;
     padding: 0px;
+
+    font-family: 'Rajdhani Light';
+    background-image: url('data/background.jpg');
+    background-size: 100%;
 }
 
 /* HEADER */
 #headerParent {
     width: 100%;
     height: 70px;
-    margin-bottom: 50px;
-    background-color: lightgray;
+    margin-bottom: 20px;
+    margin-right: 0px;
+    background-color:#203143;
+    border: solid 2px white;
 
     display: flex;
 }
 #logo {
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
     margin: 10px;
     margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px  ;
 
-    border-width: 10px;
-    border-radius: 20px;
-    border-style: solid;
-    border-color: lightgray;
+    padding: 4px;
+	background: content-box;
+    background-color: #203143;
+    border-right: solid 2px white;
 }
 #name {
     font-size: 35px;
+    color: whitesmoke;
+    font-weight: 700;
+
     align-self: center;
 }
 
 /* CONTENT */
+.content {
+    color: white;
+}
 #contentParent {
-    background-color: beige;
+    background-color: inherit;
+    text-align: center;
 }
 #supportIMG {
     min-width: 200px;
     min-height: 200px; 
     max-height: 200px;
-    max-width: 100%;
+    max-width: 90%;
+    margin-bottom: 20px;
+
+	padding: 10px;
+	background: content-box;
+    border: solid 2px white;
+}
+#buttonMain {
+    width: 110px;
+    height: 30px;
+    background-color: #203143;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#buttonMain:hover {
+    filter: brightness(120%);
+    border: solid  2px white;
+}
+#lableDrop {
+    font-size: 17px;
+}
+#animalsDrop {
+    background-color: #203143;
+    border: white;
+    font-size: 15px;
+    border-radius: 5px;
+    min-height: 25px;
+    min-width: 70px;
 }
 
 /* FOOTER */
+.footer {
+    color: white;
+}
 #footer {
     width: 100%;
-    background-color: aqua;
-    margin-left: 0px;
-    margin-right: 0px;
-    text-align: right;
-}
-#settingsSIM {
-    align-self: right;
+    background-color: #2B212A;
+    
+    bottom: 0;
+    position: absolute;
 }
