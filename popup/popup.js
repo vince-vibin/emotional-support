@@ -28,6 +28,7 @@ async function getCat(btn) {
     let responseURL = response["url"]
 
     document.getElementById("supportIMG").src = responseURL
+    document.getElementById("supportIMG").title = "powered by thecatapi.com: " + responseURL
 }
 
 async function getDoggo() {
@@ -41,6 +42,7 @@ async function getDoggo() {
     // if the API doesnt return a picture call it again
     if (responseURL.endsWith("jpg") || responseURL.endsWith(".png") || responseURL.endsWith(".jpeg")) {
         document.getElementById("supportIMG").src = responseURL
+        document.getElementById("supportIMG").title = "powered by random.dog: " + responseURL
     } else {
         getDoggo()
     }
@@ -55,4 +57,5 @@ async function getFox() {
     let responseURL = response["image"]
     
     document.getElementById("supportIMG").src = responseURL
+    document.getElementById("supportIMG").title = "powered by randomfox.ca: " + responseURL
 }

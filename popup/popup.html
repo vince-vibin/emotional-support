@@ -1,6 +1,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <script src="popup.js"></script>
     </head>
     <body id="body">
@@ -14,6 +15,7 @@
         <div class="content" id="contentParent">
             <img src="localhost/" id="supportIMG" class="content" alt="Press the button to get a picture">
             <br>
+            <label for="IMG" id="lableIMG" class="content"></label>
 
             <button id="buttonMain"">Click me</button>
             <br>
@@ -27,7 +29,14 @@
         </div>
 
         <div id="footer" class="footer">
-            Note: Pictures can sometimes load a few seconds :(
+            <div id="note" class="footer">
+                <br>Note: Pictures can sometimes load a few seconds :( 
+            </div>
+            <div id="github" class="footer">
+                <a href="https://github.com/vince-vibin/emotional-support">
+                    <i class="fa fa-github" style="color: white"></i>
+                </a>
+            </div>
         </div>
     </body>
 </html>
