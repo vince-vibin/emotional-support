@@ -1,10 +1,13 @@
 {
     "name": "emotional support",
     "description": "dont work alone",
-    "version": "0.4",
+    "version": "0.5",
     "manifest_version": 3,
     
     "action": {
         "default_popup": "./popup/popup.html"
-    }
+    },
+    "permissions": [
+        "storage"
+    ]
 }

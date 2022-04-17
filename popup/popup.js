@@ -1,25 +1,34 @@
 document.addEventListener("DOMContentLoaded", function() {
     //const dropDown = document.getElementById("animalsDrop")
     document.getElementById("buttonMain").addEventListener("click", hanlder)
+    
+    setDropdownSelect()
 })
 
 function hanlder() {
 
     let val = document.getElementById("animalsDrop").value
-    let btn = document.getElementById("buttonMain")
 
     if (val == "cat") {
-        getCat(btn)
+        getCat()
     } else if (val == "doggo") {
         getDoggo()
     } else if (val == "fox") {
         getFox()
+    } else if (val == "shibe") {
+        getShibe()
     } else {
         console.log("value unknown: " + val)
     }
 }
 
-async function getCat(btn) {
+function setDropdownSelect() {
+    chrome.storage.sync.get(["dropdownVal"], function(result) {
+        document.getElementById("animalsDrop")
+        document.getElementById("animalsDrop").value = result.dropdownVal
+    })
+}
+async function getCat() {
     let httpReq = new XMLHttpRequest()
     httpReq.open("GET", "https://api.thecatapi.com/v1/images/search", false)
     httpReq.send()
@@ -29,6 +38,8 @@ async function getCat(btn) {
 
     document.getElementById("supportIMG").src = responseURL
     document.getElementById("supportIMG").title = "powered by thecatapi.com: " + responseURL
+
+    setStorage("cat")
 }
 
 async function getDoggo() {
@@ -43,6 +54,8 @@ async function getDoggo() {
     if (responseURL.endsWith("jpg") || responseURL.endsWith(".png") || responseURL.endsWith(".jpeg")) {
         document.getElementById("supportIMG").src = responseURL
         document.getElementById("supportIMG").title = "powered by random.dog: " + responseURL
+
+        setStorage("doggo")
     } else {
         getDoggo()
     }
@@ -58,4 +71,10 @@ async function getFox() {
     
     document.getElementById("supportIMG").src = responseURL
     document.getElementById("supportIMG").title = "powered by randomfox.ca: " + responseURL
+
+    setStorage("fox")
+}
+
+function setStorage(data) {
+    chrome.storage.sync.set({"dropdownVal": data})
 }
