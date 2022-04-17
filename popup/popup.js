@@ -11,12 +11,12 @@ function hanlder() {
 
     if (val == "cat") {
         getCat()
+        document.getElementById("theButton").disabled = true;
     } else if (val == "doggo") {
         getDoggo()
+        document.getElementById("buttonMain").disabled = true;
     } else if (val == "fox") {
         getFox()
-    } else if (val == "shibe") {
-        getShibe()
     } else {
         console.log("value unknown: " + val)
     }
@@ -38,6 +38,7 @@ async function getCat() {
 
     document.getElementById("supportIMG").src = responseURL
     document.getElementById("supportIMG").title = "powered by thecatapi.com: " + responseURL
+    document.getElementById("buttonMain").disabled = false
 
     setStorage("cat")
 }
@@ -54,6 +55,8 @@ async function getDoggo() {
     if (responseURL.endsWith("jpg") || responseURL.endsWith(".png") || responseURL.endsWith(".jpeg")) {
         document.getElementById("supportIMG").src = responseURL
         document.getElementById("supportIMG").title = "powered by random.dog: " + responseURL
+
+        document.getElementById("buttonMain").disabled = false
 
         setStorage("doggo")
     } else {
