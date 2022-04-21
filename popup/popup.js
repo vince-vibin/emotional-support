@@ -1,20 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
-    //const dropDown = document.getElementById("animalsDrop")
     document.getElementById("buttonMain").addEventListener("click", hanlder)
-    
     setDropdownSelect()
 })
 
 function hanlder() {
 
-    let val = document.getElementById("animalsDrop").value
-
+    const val = document.getElementById("animalsDrop").value
     if (val == "cat") {
         getCat()
-        document.getElementById("theButton").disabled = true;
     } else if (val == "doggo") {
         getDoggo()
-        document.getElementById("buttonMain").disabled = true;
     } else if (val == "fox") {
         getFox()
     } else {
@@ -28,17 +23,18 @@ function setDropdownSelect() {
         document.getElementById("animalsDrop").value = result.dropdownVal
     })
 }
+
 async function getCat() {
     let httpReq = new XMLHttpRequest()
     httpReq.open("GET", "https://api.thecatapi.com/v1/images/search", false)
     httpReq.send()
     
-    let response =  await JSON.parse(httpReq.responseText)[0]
+    let response = await JSON.parse(httpReq.responseText)[0]
     let responseURL = response["url"]
 
     document.getElementById("supportIMG").src = responseURL
     document.getElementById("supportIMG").title = "powered by thecatapi.com: " + responseURL
-    document.getElementById("buttonMain").disabled = false
+    console.log(document.getElementById("buttonMain").disabled)
 
     setStorage("cat")
 }
@@ -56,8 +52,6 @@ async function getDoggo() {
         document.getElementById("supportIMG").src = responseURL
         document.getElementById("supportIMG").title = "powered by random.dog: " + responseURL
 
-        document.getElementById("buttonMain").disabled = false
-
         setStorage("doggo")
     } else {
         getDoggo()
@@ -65,6 +59,7 @@ async function getDoggo() {
 }
 
 async function getFox() {
+    document.getElementById("buttonMain").disabled = true;
     let httpReq = new XMLHttpRequest()
     httpReq.open("GET", "https://randomfox.ca/floof/", false)
     httpReq.send()

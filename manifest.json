@@ -9,5 +9,10 @@
     },
     "permissions": [
         "storage"
-    ]
+    ],
+    "icons": {
+        "16": "./popup/data/logo16.png",
+        "48": "./popup/data/logo48.png",
+        "128": "./popup/data/logo128.png"
+    }
 }

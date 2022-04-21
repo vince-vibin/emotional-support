@@ -61,7 +61,7 @@ h2, h3 {
     min-height: 200px; 
     max-height: 200px;
     max-width: 90%;
-    margin-bottom: 3px;
+    margin-bottom: 10px;
 
 	padding: 10px;
 	background: content-box;
@@ -84,12 +84,12 @@ h2, h3 {
     font-weight: bold;
     margin-bottom: 5px;
 }
-#buttonMain:disabled {
-    filter: brightness(40%);
-}
-#buttonMain:hover:enabled {
+#buttonMain:hover {
+    border: solid 2px white;
     filter: brightness(120%);
-    border: solid  2px white;
+}
+#buttonMain:disabled {
+    background: aquamarine;
 }
 #lableDrop {
     font-size: 17px;
