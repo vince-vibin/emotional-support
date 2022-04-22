@@ -25,6 +25,7 @@ function setDropdownSelect() {
 }
 
 async function getCat() {
+    //response = await fetch("https://api.thecatapi.com/v1/images/search")
     let httpReq = new XMLHttpRequest()
     httpReq.open("GET", "https://api.thecatapi.com/v1/images/search", false)
     httpReq.send()
