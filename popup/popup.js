@@ -25,12 +25,10 @@ function setDropdownSelect() {
 }
 
 async function getCat() {
-    //response = await fetch("https://api.thecatapi.com/v1/images/search")
-    let httpReq = new XMLHttpRequest()
-    httpReq.open("GET", "https://api.thecatapi.com/v1/images/search", false)
-    httpReq.send()
+    document.getElementById("buttonMain").disabled = true;
+    let response = await fetch("https://api.thecatapi.com/v1/images/search")
     
-    let response = await JSON.parse(httpReq.responseText)[0]
+    response = await response.json()
     let responseURL = response["url"]
 
     document.getElementById("supportIMG").src = responseURL
@@ -38,6 +36,7 @@ async function getCat() {
     console.log(document.getElementById("buttonMain").disabled)
 
     setStorage("cat")
+    document.getElementById("buttonMain").disabled = false;
 }
 
 async function getDoggo() {
