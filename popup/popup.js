@@ -6,12 +6,19 @@ document.addEventListener("DOMContentLoaded", function() {
 function hanlder() {
 
     const val = document.getElementById("animalsDrop").value
+    const btn = document.getElementById("buttonMain")
     if (val == "cat") {
-        getCat()
+        btn.disabled = true
+        chrome.runtime.sendMessage({ msg: "getCat" });
+        receiveMessage()
     } else if (val == "doggo") {
-        getDoggo()
+        btn.disabled = true
+        chrome.runtime.sendMessage({ msg: "getDoggo" });
+        receiveMessage()
     } else if (val == "fox") {
-        getFox()
+        btn.disabled = true
+        chrome.runtime.sendMessage({ msg: "getFox" });
+        receiveMessage()
     } else {
         console.log("value unknown: " + val)
     }
@@ -24,55 +31,21 @@ function setDropdownSelect() {
     })
 }
 
-async function getCat() {
-    document.getElementById("buttonMain").disabled = true;
-    let response = await fetch("https://api.thecatapi.com/v1/images/search")
-    
-    response = await response.json()
-    let responseURL = response["url"]
-
-    document.getElementById("supportIMG").src = responseURL
-    document.getElementById("supportIMG").title = "powered by thecatapi.com: " + responseURL
-    console.log(document.getElementById("buttonMain").disabled)
-
-    setStorage("cat")
-    document.getElementById("buttonMain").disabled = false;
-}
-
-async function getDoggo() {
-    let httpReq = new XMLHttpRequest()
-    httpReq.open("GET", "https://random.dog/woof.json", false)
-    httpReq.send()
-    
-    let response = await JSON.parse(httpReq.responseText)
-    let responseURL = response.url
-    
-    // if the API doesnt return a picture call it again
-    if (responseURL.endsWith("jpg") || responseURL.endsWith(".png") || responseURL.endsWith(".jpeg")) {
-        document.getElementById("supportIMG").src = responseURL
-        document.getElementById("supportIMG").title = "powered by random.dog: " + responseURL
-
-        setStorage("doggo")
-    } else {
-        getDoggo()
-    }
-}
-
-async function getFox() {
-    document.getElementById("buttonMain").disabled = true;
-    let httpReq = new XMLHttpRequest()
-    httpReq.open("GET", "https://randomfox.ca/floof/", false)
-    httpReq.send()
-    
-    let response = await JSON.parse(httpReq.responseText)
-    let responseURL = response["image"]
-    
-    document.getElementById("supportIMG").src = responseURL
-    document.getElementById("supportIMG").title = "powered by randomfox.ca: " + responseURL
-
-    setStorage("fox")
-}
-
 function setStorage(data) {
     chrome.storage.sync.set({"dropdownVal": data})
+}
+
+function receiveMessage() {
+    const btn = document.getElementById("buttonMain")
+    chrome.runtime.onMessage.addListener(
+        async function(request, sender, sendResponse) {
+            if (request.msg == "gotURL") {
+                document.getElementById("supportIMG").src = request.data.content
+                document.getElementById("supportIMG").title = "source: " + request.data.content
+                
+                setStorage(request.data.subject)
+                btn.disabled = false
+            }
+        }
+    );
 }
