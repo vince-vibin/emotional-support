@@ -44,7 +44,7 @@ function receiveMessage() {
                 document.getElementById("supportIMG").title = "source: " + request.data.content
                 
                 setStorage(request.data.subject)
-                btn.disabled = false
+                document.getElementById("supportIMG").onload = function() {btn.disabled = false}
             }
         }
     );
