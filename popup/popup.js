@@ -38,13 +38,15 @@ function setStorage(data) {
 function receiveMessage() {
     const btn = document.getElementById("buttonMain")
     chrome.runtime.onMessage.addListener(
-        async function(request, sender, sendResponse) {
+        function(request, sender, sendResponse) {
             if (request.msg == "gotURL") {
                 document.getElementById("supportIMG").src = request.data.content
                 document.getElementById("supportIMG").title = "source: " + request.data.content
                 
                 setStorage(request.data.subject)
                 document.getElementById("supportIMG").onload = function() {btn.disabled = false}
+
+                return true;
             }
         }
     );

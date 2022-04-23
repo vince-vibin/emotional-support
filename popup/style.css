@@ -89,7 +89,7 @@ h2, h3 {
     filter: brightness(120%);
 }
 #buttonMain:disabled {
-    background: aquamarine;
+    filter: brightness(40%);
 }
 #lableDrop {
     font-size: 17px;

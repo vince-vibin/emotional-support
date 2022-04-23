@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener(
-    async function(request, sender, sendResponse){
+    function(request, sender, sendResponse){
         if(request.msg == "getCat") {
             getCat()
         } else if (request.msg == "getDoggo") {
@@ -7,6 +7,7 @@ chrome.runtime.onMessage.addListener(
         } else if (request.msg == "getFox") {
             getFox()
         }
+        return true;
     }
 );
 
