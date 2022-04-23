@@ -1,7 +1,7 @@
 {
     "name": "emotional support",
-    "description": "dont work alone",
-    "version": "0.6",
+    "description": "dont work alone (get support from animal pictures)",
+    "version": "0.8",
     "manifest_version": 3,
     
     "action": {
