@@ -1,11 +1,14 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <script src="popup.js"></script>
     </head>
     <body id="body">
         <div class="header" id="headerParent">
-            <img src="data\logo1024px.jpg" class="header" id="logo">
+            <a href="popup.html">
+                <img src="data\logo1024px.jpg" class="header" id="logo">
+            </a>
             <div class="header" id="name"> 
                 emotional support
             </div>
@@ -14,8 +17,9 @@
         <div class="content" id="contentParent">
             <img src="localhost/" id="supportIMG" class="content" alt="Press the button to get a picture">
             <br>
+            <label for="IMG" id="lableIMG" class="content"></label>
 
-            <button id="buttonMain"">Click me</button>
+            <button id="buttonMain">Click me</button>
             <br>
 
             <label for="animals" id="lableDrop" class="content">Choose your support animal:</label>
@@ -27,7 +31,19 @@
         </div>
 
         <div id="footer" class="footer">
-            Note: Pictures can sometimes load a few seconds :(
+            <div id="note" class="footer">
+                <br>Note: Pictures can sometimes load a few seconds :( 
+            </div>
+            <div class="footer" id="infoContainer">
+                <a href="info.html" id="infoHref">
+                    <img src="https://img.icons8.com/cotton/64/000000/info--v5.png" class="footer" id="infoIcon">
+                </a>
+            </div>
+            <div id="github" class="footer">
+                <a href="https://github.com/vince-vibin/emotional-support">
+                    <i class="fa fa-github" style="color: white"></i>
+                </a>
+            </div>
         </div>
     </body>
 </html>
