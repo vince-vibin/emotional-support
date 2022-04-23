@@ -38,7 +38,7 @@ function setStorage(data) {
 function receiveMessage() {
     const btn = document.getElementById("buttonMain")
     chrome.runtime.onMessage.addListener(
-        function(request, sender, sendResponse) {
+        function(request) {
             if (request.msg == "gotURL") {
                 document.getElementById("supportIMG").src = request.data.content
                 document.getElementById("supportIMG").title = "source: " + request.data.content
